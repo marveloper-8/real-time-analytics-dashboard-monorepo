@@ -1,0 +1,20 @@
+type Query {
+  getAnalytics(startTime: String!, endTime: String!): Analytics!
+}
+
+type Subscription {
+  analyticsUpdated: Analytics!
+}
+
+type Analytics {
+  totalVisits: Int!
+  uniqueVisitors: Int!
+  avgSessionDuration: Float!
+  bounceRate: Float!
+  topPages: [PageVisit!]!
+}
+
+type PageVisit {
+  url: String!
+  visits: Int!
+}

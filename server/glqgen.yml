@@ -15,7 +15,7 @@ resolver:
   package: graph
 
 autobind:
-  - "github.com/marveloper-8/real-time-analytics-dashboard-monorepo/server/internal/graph/model"
+  - "github.com/marveloper-8/real-time-analytics-dashboard-monorepo/server/graph/model"
 
 models:
   ID:
