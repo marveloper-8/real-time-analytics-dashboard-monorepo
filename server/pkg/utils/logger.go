@@ -8,6 +8,8 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
+type Logger = zap.Logger
+
 var (
 	logger	*zap.Logger
 	once		sync.Once
