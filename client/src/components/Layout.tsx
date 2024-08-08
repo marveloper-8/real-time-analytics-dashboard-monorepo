@@ -22,3 +22,5 @@ const Layout: FC<LayoutProps> = ({children}) => {
     </div>
   )
 }
+
+export default Layout;

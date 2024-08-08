@@ -32,3 +32,5 @@ const Chart: FC<ChartProps> = ({ data }) => {
 
   return <Line options={options} data={data} />;
 }
+
+export default Chart;
