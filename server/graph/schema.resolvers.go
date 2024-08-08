@@ -6,19 +6,19 @@ package graph
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/marveloper-8/real-time-analytics-dashboard-monorepo/graph/model"
 )
 
 // GetAnalytics is the resolver for the getAnalytics field.
 func (r *queryResolver) GetAnalytics(ctx context.Context, startTime string, endTime string) (*model.Analytics, error) {
-	panic(fmt.Errorf("not implemented: GetAnalytics - getAnalytics"))
+	// panic(fmt.Errorf("not implemented: GetAnalytics - getAnalytics"))
+	return r.AnalyticsService.GetAnalytics(ctx, startTime, endTime)
 }
 
 // AnalyticsUpdated is the resolver for the analyticsUpdated field.
 func (r *subscriptionResolver) AnalyticsUpdated(ctx context.Context) (<-chan *model.Analytics, error) {
-	panic(fmt.Errorf("not implemented: AnalyticsUpdated - analyticsUpdated"))
+	return r.AnalyticsService.SubscribeToAnalytics(ctx)
 }
 
 // Query returns QueryResolver implementation.
