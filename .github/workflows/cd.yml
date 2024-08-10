@@ -1,0 +1,28 @@
+name: CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install doctl
+      uses: digitalocean/action-doctl@v2
+      with:
+        token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+    
+    - name: Set up kubectl
+      run: |
+        doctl kubernetes cluster kubeconfig save your-cluster-name
+    
+    - name: Deploy to DigitalOcean Kubernetes
+      run: |
+        kubectl apply -f infra/kubernetes/
+
+    - name: Verify deployment
+      run: |
+        kubectl get services -o wide
